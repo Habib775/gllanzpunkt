@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* الخط الأساسي */
+body {
+  @apply font-custom bg-light text-dark leading-relaxed antialiased;
+}
+
+/* الروابط */
+a {
+  @apply text-secondary hover:text-accent transition-colors duration-200;
+}
+
+/* رؤوس الأقسام */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-primary;
+}
+
+/* أزرار عامة */
+.btn {
+  @apply px-4 py-2 rounded-2xl font-semibold shadow-md transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-secondary text-white hover:bg-accent;
+}
+
+.btn-outline {
+  @apply border border-secondary text-secondary hover:bg-secondary hover:text-white;
+}
+
+/* الصور في المعرض */
+.gallery-img {
+  @apply rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105;
+}
+
+/* تأثير النص */
+.typing-effect {
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+

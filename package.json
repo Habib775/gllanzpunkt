@@ -1,0 +1,52 @@
+{
+  "name": "glanzpunkt-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "server": "ts-node server.ts",
+    "server:dev": "ts-node --watch server.ts"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.1",
+    "@lucide/react": "^0.378.0",
+    "@prisma/client": "^5.12.1",
+    "autoprefixer": "^10.4.17",
+    "axios": "^1.6.7",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "framer-motion": "^10.16.4",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.378.0",
+    "next": "14.2.4",
+    "postcss": "^8.4.38",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^5.2.1",
+    "react-simple-typewriter": "^5.0.1",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.74",
+    "@types/react-dom": "18.2.22",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.4",
+    "prisma": "^5.12.1",
+    "ts-node": "^10.9.2",
+    "typescript": "5.4.5"
+  }
+}
+
