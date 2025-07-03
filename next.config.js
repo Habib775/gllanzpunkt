@@ -2,10 +2,29 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'your-domain.com'], // أضف الدومينات التي تستضيف صورك هنا
+    domains: [
+      'localhost',
+      'images.unsplash.com',
+      'media.giphy.com',
+      'cdn.jsdelivr.net'
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.giphy.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+      }
+    ]
   },
   experimental: {
-    serverActions: true // إذا كنت تستخدم ميزات تجريبية مثل Server Actions
+    serverComponentsExternalPackages: ['@prisma/client']
   }
 };
 

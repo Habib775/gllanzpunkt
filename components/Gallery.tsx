@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/images/gallery1.jpg",
-  "/images/gallery2.jpg",
-  "/images/gallery3.jpg",
-  "/images/gallery4.jpg",
-  "/images/gallery5.jpg",
-  "/images/gallery6.jpg",
+  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=600&h=400&fit=crop",
 ];
 
 const container = {

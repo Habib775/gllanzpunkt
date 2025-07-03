@@ -1,187 +1,162 @@
-# Glanzpunkt - Professionelle Reinigungsdienstleistungen
+# 🌟 Glanzpunkt - Professional Cleaning Services
 
-## 🌟 Über das Projekt
+موقع شركة Glanzpunkt لخدمات التنظيف المهنية مع لوحة تحكم شاملة.
 
-Glanzpunkt ist eine moderne Website für professionelle Reinigungsdienstleistungen. Das Projekt kombiniert ein ansprechendes Frontend mit einem robusten Backend für die Verwaltung von Inhalten.
+## 🚀 **المميزات الرئيسية**
 
-**Slogan:** "Weil Ihr Glanz unser Punkt ist"
+### 🎛️ **لوحة التحكم الكاملة:**
+- **تسجيل دخول آمن** للمشرفين مع تشفير كلمات المرور
+- **إدارة الخدمات:** إضافة، تعديل، حذف، عرض
+- **إدارة العروض:** إدارة كاملة للعروض الترويجية
+- **إدارة المعرض:** رفع وحذف الصور
+- **إدارة قسم "من نحن":** تحرير المحتوى
+- **واجهة عربية** سهلة الاستخدام
 
-## 🚀 Technologie-Stack
+### 🔗 **API Routes المكتملة:**
+- `/api/services` - إدارة الخدمات
+- `/api/offers` - إدارة العروض
+- `/api/gallery` - إدارة المعرض
+- `/api/about` - إدارة قسم من نحن
+- `/api/auth` - المصادقة والجلسات
 
-### Frontend
-- **Next.js 14** - React Framework
-- **TypeScript** - Typisierte Programmierung
-- **Tailwind CSS** - Utility-First CSS Framework
-- **Framer Motion** - Animationen
-- **Lucide React** - Icons
-- **React Simple Typewriter** - Schreibmaschinen-Effekt
+### 🎨 **التقنيات المستخدمة:**
+- **Frontend:** Next.js 14 مع TypeScript
+- **Backend:** Next.js API Routes
+- **قاعدة البيانات:** MongoDB مع Prisma ORM
+- **المصادقة:** JWT مع Cookies آمنة
+- **التصميم:** Tailwind CSS مع مكونات UI مخصصة
+- **التأثيرات:** Framer Motion, Sparkles
 
-### Backend
-- **Express.js** - Node.js Web Framework
-- **Prisma** - Database ORM
-- **MongoDB** - NoSQL Datenbank
-- **JWT** - Authentifizierung
-- **bcryptjs** - Passwort-Hashing
+## 🔧 **التثبيت والتشغيل المحلي**
 
-## 📁 Projektstruktur
+### 1. **استنساخ المشروع:**
+\`\`\`bash
+git clone https://github.com/Habib775/gllanzpunkt.git
+cd gllanzpunkt
+\`\`\`
 
-```
+### 2. **تثبيت التبعيات:**
+\`\`\`bash
+npm install
+\`\`\`
+
+### 3. **إعداد قاعدة البيانات:**
+\`\`\`bash
+# انسخ ملف المتغيرات البيئية
+cp .env.example .env
+
+# حدث .env مع بيانات MongoDB الحقيقية
+DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/glanzpunkt"
+JWT_SECRET="your_super_secret_jwt_key"
+\`\`\`
+
+### 4. **إعداد Prisma:**
+\`\`\`bash
+npx prisma generate
+npx prisma db push
+\`\`\`
+
+### 5. **تشغيل المشروع:**
+\`\`\`bash
+npm run dev
+\`\`\`
+
+### 6. **الوصول للوحة التحكم:**
+- **URL:** \`http://localhost:3000/admin/login\`
+- **اسم المستخدم:** \`admin\`
+- **كلمة المرور:** \`admin123\`
+
+## 🌐 **النشر على Vercel**
+
+### 1. **ربط المشروع بـ Vercel:**
+1. اذهب إلى [vercel.com](https://vercel.com)
+2. سجل دخول أو أنشئ حساب جديد
+3. انقر على "New Project"
+4. اختر مستودع GitHub الخاص بك
+5. انقر على "Import"
+
+### 2. **إعداد متغيرات البيئة:**
+في لوحة تحكم Vercel، اذهب إلى:
+\`Settings > Environment Variables\`
+
+أضف المتغيرات التالية:
+\`\`\`
+DATABASE_URL = mongodb+srv://username:password@cluster.mongodb.net/glanzpunkt
+JWT_SECRET = your_super_secret_jwt_key_here
+\`\`\`
+
+### 3. **النشر:**
+- Vercel سيقوم بالنشر تلقائياً عند كل push إلى GitHub
+- أو يمكنك النشر يدوياً من لوحة التحكم
+
+### 4. **إعداد قاعدة البيانات:**
+بعد النشر الأول:
+\`\`\`bash
+# من terminal محلي
+npx prisma db push
+\`\`\`
+
+## 🔒 **الأمان**
+
+- **Middleware حماية** لصفحات الإدارة
+- **تشفير كلمات المرور** مع bcrypt
+- **JWT tokens** آمنة
+- **Cookies httpOnly** للحماية من XSS
+
+## 📁 **بنية المشروع**
+
+\`\`\`
 glanzpunkt/
 ├── app/                    # Next.js App Router
-│   ├── globals.css        # Globale Styles
-│   ├── layout.tsx         # Root Layout
-│   └── page.tsx           # Hauptseite
-├── components/            # React Komponenten
-│   ├── ui/               # UI Komponenten
-│   ├── Hero.tsx          # Hero Sektion
-│   ├── Services.tsx      # Dienstleistungen
-│   ├── About.tsx         # Über uns
-│   ├── Offers.tsx        # Angebote
-│   ├── Gallery.tsx       # Bildergalerie
-│   └── Footer.tsx        # Footer
-├── routes/               # API Routes (Backend)
-│   ├── authRoutes.ts     # Authentifizierung
-│   ├── serviceRoutes.ts  # Dienstleistungen API
-│   ├── offerRoutes.ts    # Angebote API
-│   ├── galleryRoutes.ts  # Galerie API
-│   └── aboutRoutes.ts    # Über uns API
-├── prisma/               # Prisma Schema
-│   └── schema.prisma     # Datenbankschema
-├── server.ts             # Express Server
-└── middleware.ts         # Next.js Middleware
-```
+│   ├── admin/             # صفحات لوحة التحكم
+│   ├── api/               # API Routes
+│   ├── globals.css        # الأنماط العامة
+│   ├── layout.tsx         # Layout الرئيسي
+│   └── page.tsx           # الصفحة الرئيسية
+├── components/            # مكونات React
+│   ├── ui/               # مكونات UI أساسية
+│   └── admin/            # مكونات لوحة التحكم
+├── lib/                  # مكتبات مساعدة
+├── prisma/               # إعدادات قاعدة البيانات
+├── public/               # الملفات الثابتة
+├── middleware.ts         # Next.js Middleware
+├── vercel.json          # إعدادات Vercel
+└── package.json         # التبعيات والنصوص
+\`\`\`
 
-## 🛠️ Installation & Setup
+## 🎯 **الوصول للموقع**
 
-### 1. Repository klonen
-```bash
-git clone https://github.com/[username]/gllanzpunkt.git
-cd gllanzpunkt
-```
+### **الصفحة الرئيسية:**
+- عرض الخدمات والعروض
+- معرض الصور
+- معلومات الاتصال
 
-### 2. Dependencies installieren
-```bash
-npm install
-```
+### **لوحة التحكم:**
+- \`/admin/login\` - تسجيل الدخول
+- \`/admin/dashboard\` - لوحة التحكم الرئيسية
+- \`/admin/services\` - إدارة الخدمات
+- \`/admin/offers\` - إدارة العروض
+- \`/admin/gallery\` - إدارة المعرض
+- \`/admin/about\` - إدارة قسم من نحن
 
-### 3. Umgebungsvariablen konfigurieren
-Erstellen Sie eine `.env` Datei im Projektroot:
+## 🛠️ **التطوير**
 
-```env
-# MongoDB Verbindung
-DATABASE_URL="mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority"
+### **إضافة خدمة جديدة:**
+1. اذهب إلى \`/admin/services\`
+2. انقر على "إضافة خدمة جديدة"
+3. املأ البيانات المطلوبة
+4. احفظ التغييرات
 
-# JWT Secret für Authentifizierung
-JWT_SECRET="your_super_secret_jwt_key"
+### **تحديث التصميم:**
+- الأنماط في \`app/globals.css\`
+- مكونات UI في \`components/ui/\`
+- إعدادات Tailwind في \`tailwind.config.ts\`
 
-# Server Port
-PORT=5000
-```
+## 📞 **الدعم**
 
-### 4. Prisma Setup
-```bash
-# Prisma Client generieren
-npx prisma generate
-
-# Datenbank synchronisieren (optional)
-npx prisma db push
-```
-
-### 5. Entwicklungsserver starten
-
-**Frontend (Next.js):**
-```bash
-npm run dev
-```
-Läuft auf: http://localhost:3000
-
-**Backend (Express):**
-```bash
-npm run server:dev
-```
-Läuft auf: http://localhost:5000
-
-## 🎨 Features
-
-### Frontend Features
-- ✨ Moderne, responsive Benutzeroberfläche
-- 🎭 Smooth Animationen mit Framer Motion
-- ⚡ Sparkle-Effekte im Hero-Bereich
-- 📱 Mobile-First Design
-- 🌐 Mehrsprachige Unterstützung (Deutsch/Arabisch)
-
-### Backend Features
-- 🔐 JWT-basierte Authentifizierung
-- 📊 RESTful API für alle Inhalte
-- 🛡️ Sichere Admin-Bereiche
-- 💾 MongoDB Integration mit Prisma
-- 🍪 Cookie-basierte Sessions
-
-### Verwaltbare Inhalte
-- 🧹 Dienstleistungen (Services)
-- 🎁 Angebote (Offers)
-- 🖼️ Bildergalerie (Gallery)
-- ℹ️ Über uns Informationen (About)
-- 👤 Admin-Benutzer
-
-## 🔧 API Endpoints
-
-### Authentifizierung
-- `POST /api/auth/register` - Neuen Admin registrieren
-- `POST /api/auth/login` - Admin Login
-- `POST /api/auth/logout` - Admin Logout
-
-### Dienstleistungen
-- `GET /api/services` - Alle Dienstleistungen abrufen
-- `POST /api/services` - Neue Dienstleistung erstellen (🔒 Admin)
-- `PUT /api/services/:id` - Dienstleistung bearbeiten (🔒 Admin)
-- `DELETE /api/services/:id` - Dienstleistung löschen (🔒 Admin)
-
-### Angebote
-- `GET /api/offers` - Alle Angebote abrufen
-- `POST /api/offers` - Neues Angebot erstellen (🔒 Admin)
-- `PUT /api/offers/:id` - Angebot bearbeiten (🔒 Admin)
-- `DELETE /api/offers/:id` - Angebot löschen (🔒 Admin)
-
-### Galerie
-- `GET /api/gallery` - Alle Bilder abrufen
-- `POST /api/gallery` - Neues Bild hinzufügen (🔒 Admin)
-- `PUT /api/gallery/:id` - Bild bearbeiten (🔒 Admin)
-- `DELETE /api/gallery/:id` - Bild löschen (🔒 Admin)
-
-### Über uns
-- `GET /api/about` - Über uns Informationen abrufen
-- `PUT /api/about` - Über uns Informationen bearbeiten (🔒 Admin)
-
-## 🚀 Deployment
-
-### Vercel (Frontend)
-1. Repository mit Vercel verbinden
-2. Umgebungsvariablen in Vercel Dashboard setzen
-3. Automatisches Deployment bei Git Push
-
-### Railway/Heroku (Backend)
-1. Projekt auf Railway/Heroku deployen
-2. MongoDB Atlas Verbindung konfigurieren
-3. Umgebungsvariablen setzen
-
-## 🔒 Sicherheit
-
-- Passwörter werden mit bcryptjs gehashed
-- JWT Tokens für sichere Authentifizierung
-- HTTP-Only Cookies für Session Management
-- CORS Konfiguration für Frontend-Backend Kommunikation
-- Middleware-Schutz für Admin-Bereiche
-
-## 📝 Lizenz
-
-Dieses Projekt ist privat und für den internen Gebrauch bestimmt.
-
-## 👥 Kontakt
-
-Bei Fragen oder Support wenden Sie sich an das Entwicklungsteam.
+للمساعدة أو الاستفسارات، يرجى فتح issue في GitHub أو التواصل مع فريق التطوير.
 
 ---
 
-**Glanzpunkt** - Weil Ihr Glanz unser Punkt ist ✨
+**تم تطوير المشروع بواسطة Manus AI** 🤖
 
